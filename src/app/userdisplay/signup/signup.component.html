@@ -1,0 +1,60 @@
+<div class="container">
+
+
+
+  <h1>Sign Up Form</h1>
+
+<form (ngSubmit)="onUserSave(f)" #f="ngForm" >
+
+    <div class="form-group" >
+
+      <label>User Email</label>
+
+      <input name="user_email" required email ngModel #user_email="ngModel" type="text" class="form-control" placeholder="Enter Email address">
+      <label class="alert alert-danger" *ngIf="user_email.hasError('required') && !user_email.pristine">Email is required</label>
+      <label class="alert alert-danger" *ngIf="user_email.hasError('email') && !user_email.pristine">Enter correct email</label>
+
+    </div>
+
+    <div class="form-group" >
+
+      <label>User Name</label>
+
+      <input name="user_name" required minlength="5" pattern="[a-zA-Z]*" ngModel #user_name="ngModel" type="text" class="form-control" placeholder="Enter Name ">
+      <label class="alert alert-danger" *ngIf="user_name.hasError('required') && !user_name.pristine">name is required</label>
+      <label class="alert alert-danger" *ngIf="user_name.hasError('minlength') && !user_name.pristine">enter min 5 char</label>
+      <label class="alert alert-danger" *ngIf="user_name.hasError('pattern') && !user_name.pristine">enter character</label>
+
+    </div>
+
+    <div class="form-group" >
+
+      <label>User password</label>
+
+      <input name="user_password" required minlength="8" maxlength="15" ngModel #user_pass="ngModel" pattern="[A-Za-z0-9]*" type="password" class="form-control" placeholder="Enter password ">
+      <label class="alert alert-danger" *ngIf="user_pass.hasError('required') && !user_pass.pristine">password is required</label>
+      <label class="alert alert-danger" *ngIf="user_pass.hasError('minlength') && !user_pass.pristine">enter a min length of password</label>
+
+      <label class="alert alert-danger" *ngIf="user_pass.hasError('maxlength') && !user_pass.pristine">enter a max length of password</label>
+      <label class="alert alert-danger" *ngIf="user_pass.hasError('pattern') && !user_pass.pristine">password doesn't match pattern</label>
+
+
+    </div>
+
+    <div class="form-group" >
+
+      <label>User Mobile No</label>
+
+      <input name="user_mobile_no" required minlength="10" maxlength="10"  ngModel type="text" class="form-control" placeholder="Enter mobile no">
+
+    </div>
+
+    <div class="form-group">
+
+      <button type="submit" [disabled]="!f.valid" class="form-control btn btn-primary" >Save User</button>
+
+    </div>
+
+  </form>
+
+</div>

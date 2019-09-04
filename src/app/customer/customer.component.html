@@ -1,0 +1,75 @@
+<h1>Reactive form Demo</h1>
+<div class="container" >
+  <form [formGroup]="customer" (ngSubmit)="onSubmit()">
+    <div class="form-group" >
+      <label>First Name</label>
+      <input formControlName="firstname" type="text" placeholder="Enter First Name" class="form-control" >
+      <label class="alert alert-danger" *ngIf="customer.get('firstname').hasError('required')">First name is required</label>
+      <label class="alert alert-danger" *ngIf="customer.get('firstname').hasError('minlength')">Name should have minimum char of 3</label>
+      <label class="alert alert-danger" *ngIf="customer.get('firstname').hasError('invalidName')">Invalid name</label>
+      <!-- <label class="alert alert-danger" *ngIf="customer.get('firstname').hasError('pattern')">Only characters are allowed</label> -->
+    </div>
+    <div class="form-group" >
+        <label>Last Name</label>
+        <input formControlName="lastname" type="text" placeholder="Enter Last Name" class="form-control" >
+        <label class="alert alert-danger" *ngIf="customer.get('lastname').hasError('required')">First name is required</label>
+      <label class="alert alert-danger" *ngIf="customer.get('lastname').hasError('minlength')">Name should have minimum char of 3</label>
+      <label class="alert alert-danger" *ngIf="customer.get('lastname').hasError('invalidName')">Invalid name</label>
+      </div>
+      <div formGroupName="passwordgroup" class="form-group">
+        <div>
+          <label>Password</label>
+          <input type="password" class="form-control" formControlName="password" >
+          <label class="alert alert-danger" *ngIf="customer.get('passwordgroup').get('password').hasError('required')">password is required</label>
+        </div>
+        <div>
+          <label>Confirm Password</label>
+          <input type="password" class="form-control" formControlName="confirm_password">
+          <label class="alert alert-danger" *ngIf="customer.get('passwordgroup').get('confirm_password').hasError('required')">Confirm password is required</label>
+        </div>
+        <label class="alert alert-danger" *ngIf="customer.get('passwordgroup').hasError('passwordNotMatched')">Confirm password and password should match</label>
+      </div>
+      <div class="form-group">
+        Notification:
+        <input type="radio" value="email" formControlName="notification">Email
+        <input type="radio" value="mobile_no" formControlName="notification">Mobile No
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" formControlName="email">
+        <label class="alert alert-danger" *ngIf="customer.get('email').hasError('required')">Email is required</label>
+      </div>
+      <div class="form-group">
+        <label>Mobile No</label>
+        <input type="text" class="form-control" formControlName="mobile_no">
+        <label class="alert alert-danger" *ngIf="customer.get('mobile_no').hasError('required')">mobile_no is required</label>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-info" (click)="onAddClicked()">Add Hobby</button>
+        <div class="form-group">
+          <div  formArrayName="hobby">
+            <div *ngFor="let item of getCotrols();let i=index">
+            <input type="text" placeholder="Enter hobby">
+            <button (click)="onDelClicked(i)">Delete</button>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" >
+      <button type="submit" class="form-control  btn btn-primary"  >Save</button>
+      </div>
+  </form>
+</div>
+<!-- <div formGroupName="passwordgroup"  class="form-group" >
+    <div>
+      <label>Enter Password</label>
+      <input type="password" class="form-control" formControlName="password">
+      <label *ngIf="customer.get('passwordgroup').get('password').hasError('required')" class="alert alert-danger" >Password is required</label>
+    </div>
+    <div>
+        <label>Enter Confirm Password</label>
+      <input type="password" class="form-control" formControlName="confirm_password" >
+      <label *ngIf="customer.get('passwordgroup').get('confirm_password').hasError('required')" class="alert alert-danger" >confirmPassword is required</label>
+    </div>
+    <label *ngIf="customer.get('passwordgroup').hasError('passwordNotMatched')" class="alert alert-danger" >confirm password and password should be same</label>
+</div> -->

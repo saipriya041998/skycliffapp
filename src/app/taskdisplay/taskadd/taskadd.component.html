@@ -1,0 +1,37 @@
+<div class="container">
+
+  <form  (ngSubmit)="onSaveTask(f)"   #f="ngForm" >
+
+    <div class="form-group">
+
+      <Label>Task Id</Label>
+
+      <input name="Id"  ngModel class="form-control" placeholder="Enter Task Id">
+
+    </div>
+
+    <div class="form-group">
+
+      <Label>Task Title</Label>
+
+      <input name="Title" ngModel  class="form-control" placeholder="Enter Task Title">
+
+    </div>
+
+    <div class="form-group">
+
+      <Label>Task Status</Label>
+
+      <input name="Status" ngModel class="form-control" placeholder="Enter Product Status">
+
+    </div>
+
+    <div class="form-group">
+
+      <button type="submit" class="btn btn-primary">Add New Task</button>
+
+    </div>
+
+  </form>
+
+</div>

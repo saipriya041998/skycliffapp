@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="col-md-3">
+
+  </div>
+  <div class="col-md-9">
+      <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">USERS</div>
+
+          <!-- Table -->
+      <table class="table">
+        <thead>
+          <th>Email</th>
+          <th>Username</th>
+          <th>Mobile No</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of arr">
+            <td>{{item.user_email}}</td>
+            <td>{{item.user_name}}</td>
+            <td>{{item.user_mobile_no}}</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+  </div>
+</div>
+
+
+
+

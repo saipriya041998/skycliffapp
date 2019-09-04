@@ -1,0 +1,43 @@
+<div class="container">
+  <!-- <div class="col-md-3">
+    <app-sidebar  (jinal)="onsideBarClick($event)"></app-sidebar>
+  </div> -->
+  <div class="col-md-9">
+    <div class="row">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Number of Tasks</div>
+
+            <!-- Table -->
+            <table class="table">
+                <thead>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                    <th>Action</th>
+                    <!-- <th>Action</th> -->
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of arr">
+                      <td>{{item.Id}}</td>
+                      <td>{{item.Title}}</td>
+                      <td>{{item.Status}}</td>
+                      <td><button class="btn btn-info" (click)="onTaskDelete(item)">Delete</button></td>
+                      <td><button class="btn btn-info" (click)="onTaskEdit(item)">Edit</button></td>
+                      <td><button class="btn btn-info" (click)="onTaskEditReactive(item)">Edit Reactive</button></td>
+                    </tr>
+                  </tbody>
+            </table>
+          </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+

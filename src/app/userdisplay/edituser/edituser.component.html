@@ -1,0 +1,61 @@
+<div class="container">
+
+  <h1>{{email}}</h1>
+
+    <h1>Edit User</h1>
+
+  <form (ngSubmit)="onUserUpdate(f)" #f="ngForm" >
+
+      <div class="form-group" >
+
+        <label>User Email</label>
+
+        <input name="user_email" disabled    required email [(ngModel)]="email" #user_email="ngModel"  type="text" class="form-control" placeholder="Enter Email address">
+
+        <label class="alert alert-danger" *ngIf="user_email.hasError('required') && !user_email.pristine"  >Email is required.</label>
+
+        <label class="alert alert-danger" *ngIf="user_email.hasError('email') && !user_email.pristine"  >Email is invalid.</label>
+
+      </div>
+
+      <div class="form-group" >
+
+        <label>User Name</label>
+
+        <input name="user_name"  required minlength="5" pattern="[a-zA-Z]*"  [(ngModel)]="name" #user_name="ngModel"  type="text" class="form-control" placeholder="Enter Name ">
+
+        <label class="alert alert-danger" *ngIf="user_name.hasError('required') && !user_name.pristine" >name is required</label>
+
+        <label class="alert alert-danger" *ngIf="user_name.hasError('minlength') && !user_name.pristine" >min 5 digits</label>
+
+        <label class="alert alert-danger" *ngIf="user_name.hasError('pattern') && !user_name.pristine" >only char</label>
+
+      </div>
+
+      <div class="form-group" >
+
+        <label>User password</label>
+
+        <input name="user_password" [(ngModel)]="pass" type="password" class="form-control" placeholder="Enter password ">
+
+      </div>
+
+      <div class="form-group" >
+
+        <label>User Mobile No</label>
+
+        <input name="user_mobile_no" [(ngModel)]="mob_no" type="text" class="form-control" placeholder="Enter mobile no">
+
+      </div>
+
+      <div class="form-group">
+
+        <button type="submit" class="btn btn-primary" >Update User</button>
+
+        <button  type="reset"  class="btn btn-primary" >Cancel</button>
+
+      </div>
+
+    </form>
+
+  </div>

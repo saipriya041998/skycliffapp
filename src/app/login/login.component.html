@@ -1,0 +1,17 @@
+<h1 align="center">Login</h1>
+<div class="container">
+  <form [formGroup]="login" (ngSubmit)="onLoginsubmit()">
+    <div class="form-group">
+      <label>User Name</label>
+      <input formControlName="user_email" type="text" placeholder="Enter user name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input formControlName="user_password" type="text" placeholder="Enter Password" class="form-control">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Login</button>&nbsp;
+        <button type="reset" class="btn btn-reset">Cancel</button>
+      </div>
+  </form>
+</div>

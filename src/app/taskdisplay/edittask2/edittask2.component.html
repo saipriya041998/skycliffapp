@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Task Add Form</h1>
+  <form [formGroup]="task1" (ngSubmit)="onTaskEdit()">
+    <div class="form-group">
+      <label>Task Id</label>
+      <input formControlName="id" type="text" class="form-control" placeholder="Enter Id">
+    </div>
+    <div class="form-group">
+      <label>Task Title</label>
+      <input formControlName="title" type="text" class="form-control" placeholder="Enter Title ">
+    </div>
+      <div  class="form-group">
+        <label>Task Status</label>
+        <input formControlName="status" class="form-control" placeholder="Enter password ">
+      </div>
+    <div class="form-group">
+      <button type="submit" class="form-control btn btn-primary">Save Task</button>
+    </div>
+  </form>
+</div>
